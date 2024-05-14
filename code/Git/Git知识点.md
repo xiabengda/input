@@ -127,9 +127,34 @@ git pull === git fetch + git merge
 `git fetch`是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
 
 而`git pull` 则是将远程主机的最新内容拉下来后直接合并，即：`git pull = git fetch + git merge`，这样可能会产生冲突，需要手动解决。
+
+git pull 无法拉取远程仓库最新内容？
+
+```shell
+git fetch --all
+git reset –hard origin/main
+git pull
+```
 #### 推送
 第一次推送时，要先把远程仓库拉取到本地：git pull
 `git push [远程仓库别名] [本地分支名]`
+推送失败
+提示：Updates were rejected because the tip of your current branch is behind
+原因：远程和本地版本不一致，
+解决：修改本地代码前，先将远程拉取到本地，
+`git pull 远程仓库名 远程分支名 --rebase`
+再确认代码无误的情况下，强制推送，`git push 远程名 本地分支 --force`
+方式二：
+```bash
+git fetch --all
+git reset –hard origin/main
+git pull
+```
+git reset –hard origin/master的含义
+是将当前分支重置到远程仓库的master分支的位置，并且将工作目录和暂存区的改动全部删除。
+第一个是：拉取所有更新，不同步；
+第二个是：本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)；
+第三个是：再更新一次（其实也可以不用，第二步命令做过了其实）
 #### 克隆
 **git clone** 是一个用于克隆（clone）远程 Git 仓库到本地的命令。
 
@@ -210,4 +235,33 @@ cat ~/.ssh/id_ed25519.pub | clip
 
 英文显示则是：  
 `Options->Text->Locale`改为`zh_CN`，`Character set`改为`UTF-8`
-如图：![](images/Pasted%20image%2020240514145533.png)
+![](images/Pasted%20image%2020240514145533.png)
+## 5.设置忽略
+### .gitignore文件
+在使用Git的过程中，有的文件比如日志，临时文件，编译的中间文件等不要提交到代码仓库，这时就要设置相应的忽略规则，来忽略这些文件的提交。在根目录下创建.gitignore文件，然后添加被忽略的内容进入
+
+规则作用示例：
+- /mtk：过滤整个文件夹；
+- \*.zip：过滤所有.zip文件；
+- /mtk/do.c：过滤某个具体文件；
+- !/mtk/one.txt：追踪（不过滤）某个具体文件。
+注意：如果创建.gitignore文件之前就push了某一文件，那么即使在.gitignore文件中写入过滤该文件的规则，该规则也不会起作用，git仍然会对该文件进行版本管理。
+解决办法：先把本地缓存删除（改变成未track状态），然后再提交:
+```bash
+git rm -r --cached . 
+git add . 
+git commit -m 'update .gitignore'
+```
+### 定义Git全局的.gitignore文件
+除了可以在项目中定义**.gitignore文件外，还可以设置全局的git .gitignore文件**来管理所有Git项目的行为。这种方式在不同的项目开发者之间是不共享的，是属于项目之上Git应用级别的行为。
+这种方式也需要创建相应的.gitignore文件，可以放在C:/Users/用户名/目录下。然后在使用以下命令配置Git：
+`git config --global core.excludesfile ~/.gitignore`
+### 忽略某个已经托管给git的文件，防止二次提交
+
+这种情况适用于，每个人修改了项目的配置，但是这个是临时的，只适用于自己本地的情况，不可提交给大家公用时，需要这么做。
+```shell
+# 执行命令将文件加入不提交队列
+git update-index --assume-unchanged 你的文件路径
+# 执行命令将文件取消加入不提交队列
+git update-index --no-assume-unchanged 你的文件路径
+```
