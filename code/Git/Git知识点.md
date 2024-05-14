@@ -12,7 +12,7 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 ### 2、安装
 直接下载安装即可，该选的选上
 ### 3、Git的基本结构
-![](images/Git工作原理和流程.svg)
+![](images/Git工作原理和流程.png)
 ### 4、git设置
 ---
 **设置用户**：`git config --global user.name "xxx"`
