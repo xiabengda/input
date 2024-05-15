@@ -9,3 +9,10 @@ something to learn
 ## JavaScript
 [JavaScript教程](code/JavaScript/教程笔记/JavaScript教程.md)
 2024-05-15
+- 语法构造
+	- 基本语法
+	- 数据类型
+	- 运算符
+		- [比较运算符](code/JavaScript/运算符/比较运算符.md)
+- 标准库
+- API
