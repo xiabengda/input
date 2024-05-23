@@ -2,7 +2,7 @@
 something to learn
 ## Obsidian
 2024-05-01
-[Obsidian教程](PKM/Obsidian教程.md)
+[Obsidian教程](PKM/笔记软件/Obsidian教程.md)
 ## Git
 2024-05-13
 [Git知识点](code/Git/Git知识点.md)
