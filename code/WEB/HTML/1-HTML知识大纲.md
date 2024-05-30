@@ -30,4 +30,17 @@
 			- 框架
 			- 实体
 			- 属性
+				- id，class，style，dir，title，lang
 			- meta元信息
+		- HTML5新增
+			- 标签
+				- 布局
+				- 状态
+				- 列表
+				- 文本
+				- 视频
+				- 音频
+			- 属性
+				- 表单
+				- input
+				- form
