@@ -29,9 +29,10 @@
 				- 按原文显示
 			- 框架
 			- 实体
-			- 属性
-				- id，class，style，dir，title，lang
 			- meta元信息
+		- 全局属性
+			- HTML元素共有的属性
+			- id，class，style，dir，title，lang，data-*
 		- HTML5新增
 			- 标签
 				- 布局
@@ -44,3 +45,6 @@
 				- 表单
 				- input
 				- form
+	- 重点总结
+		- class的值可以设置多个，用空格隔开
+		- id和class可以同时存在
