@@ -11,7 +11,7 @@ csv 模块中的 **reader** 类和 **writer** 类可用于读写序列化的数�
 ## 内容
 ### 方法
 
-> reader()
+> csv.reader(csvfile,  dialect="excel", \*\*fmtparams)
 
 
 ### 对象

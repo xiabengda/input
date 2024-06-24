@@ -57,6 +57,40 @@
 ## 函数
 ### 内置函数
 ### 自定义函数
+### 参数类型
+
+python支持的参数类型包括：位置参数，默认参数，可变参数，关键字参数，命名关键字参数
+
+> 1、位置参数
+
+> 2、默认参数
+
+> 3、可变参数(列表/元组)
+
+语法：def func(\*参数):
+
+此时会把传入的参数，当成一个元组
+```python
+def test02(*numbers):  
+    print(type(numbers))  # 元组
+    sum = 0  
+    for i in numbers:  
+        sum += i  
+    print("test02:",sum)  
+
+test02(1,2,3)  # 此时numbers是一个元组
+test02(*[1,2,3]) # 会把列表元素一个个的传入，同上
+
+```
+
+> 4、可变参数(字典)：关键字参数
+
+> 5、命名关键字参数
+
+> 参数定义的顺序
+
+参数定义的**顺序必须是**：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
+### 指定参数类型
 ## 注释
 ## 条件/循环语句
 ## 模块
@@ -97,51 +131,7 @@ print(c.name)
 
 继承方法--重写：
 ### 多态
-## 操作文件
-### 读取文件
-语法：打开文件，返回文件对象：`f = open('文件路径','r',encoding='utf-8')`
 
-读取内容：read()，`f.read()`，返回全部文件内容的字符串
-```python
-f = open(file,'r',encoding='utf-8')  
-print(f.read()) # 不要读大文件，会占满内存  
-print('----------')  
-print(f.read()) # 再次打印会返回空，因为上一次已经读到文件末尾
-
-# print(f.read(10)) # 读取多少字节  
-# print('----------')  
-# print(f.read()) # 会接着上次读
-```
-按行读取：`readline()`，返回一行文件内容的字符串
-```python
-f = open(file,'r',encoding='utf-8') 
-print(f.readline())  # 读一行  
-line = f.readline() # 读第一行  
-while line != "": # 判断当前行是否为空  
-    print(line) # 不为空则打印当前行  
-    line = f.readline() # 继续读取下一行
-```
-一次读取所有行：`readlines()`，返回全部文件内容组成列表
-```python
-f = open(file,'r',encoding='utf-8') 
-lines = f.readlines()  
-for line in lines:  
-    print(line)
-```
-关闭文件：`f.close()`，关闭文件，释放资源
-
-更加简洁的写法：
-```python
-# 文件会自动关闭  
-with open(file,'r',encoding='utf-8') as f:  
-    print(f.read())
-```
-### 写入内容
-### 模式
-- r：只读
-- w：只写，会清空之前的内容
-- a：追加
-- r+：读写，写的时候是追加
 
 ## 异常
 ```python
