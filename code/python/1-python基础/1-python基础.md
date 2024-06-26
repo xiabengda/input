@@ -1,59 +1,13 @@
-- python基础
-	- print
-	- 注释
-	- 变量
-	- 运算符
-		- 内容
-			- 逻辑：not/and/or
-		- 优先级
-	- 数据类型
-		- 内容
-			- 字符串
-			- 整数
-			- 浮点数
-			- 布尔型
-			- None
-			- 列表
-				- 格式
-				- 方法
-					- 增删改查
-					- 最值
-					- 排序
-			- 字典
-			- 元组：不可变
-		- 转置
-			- str/int/float...
-			- 我
-	- 函数
-		- 内置函数
-			- type
-			- len
-			- input
-			- range
-			- 字符串{变量1}{变量2}.format(变量1，变量2)/f"字符串{变量}"
-		- 自定义函数
-	- 条件/循环
-		- 条件
-			- 语法
-		- 循环：for/while
-	- 模块
-		- 使用模块
-			- import/from...import...
-			- 安装第三方库：pip install 库名
-		- 常用模块
-			- pandas
-			- 
-	- 面向对象
-		- 封装
-		- 继承
-		- 多态
-	- 操作文件
+
 ## print
 ## 变量
 命名一般使用下划线命名法
 ## 运算符
 ## 数据类型
-### 字符串
+
+### 数值型
+
+### 字节型
 ## 函数
 ### 内置函数
 ### 自定义函数
@@ -298,7 +252,7 @@ for i in it:
 > 5、complie，预加载正则表达式，方便后面的使用
 ```python
 obj = re.compile(r"\d+")
-result = obj.seach(string) == re.seach(pattern, string)
+result = obj.search(string) == re.search(pattern, string)
 ```
 > 6、正则中的内容如何单独提取？单独获取到正则中的具体内容可以给分组起名字
 
